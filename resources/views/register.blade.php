@@ -79,92 +79,154 @@
           </div>
         </div>
         <div class="row">
+        <form action="{{ route('customer.order') }}" method="POST">
+            @csrf
           <!-- Start  contact -->
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="form contact-form">
               <!-- <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div> -->
-              <form action="{{Route('customer.order')}}" method="post" role="form" class="contactForm">
                 <div class="form-group">
                   <label for="password">Nama Pemesan</label>
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nama" data-rule="minlen:4" data-msg="Mohon Masukkan Nama" />
-                  <div class="validation"></div>
+                  @if ($errors->has('name'))
+                  <div class="validation">
+                      {{ $errors->first('name') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Email</label>
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Mohon Masukkan format email yang benar" />
-                  <div class="validation"></div>
+                  @if ($errors->has('email'))
+                  <div class="validation">
+                      {{ $errors->first('email') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Paket</label>
-                  <select name="plan" class="form-control" >
-                    <option value="1">Paket Ekonomis</option>
-                    <option value="2">Paket Standard</option>
-                    <option value="3">Paket Premium</option>
+                  <select name="plan_id" class="form-control" >
+                    @foreach ($plans as $plan)
+                        <option value="{{$plan->id}}">{{$plan->name}}</option>
+                    @endforeach
                   </select>
-                  <div class="validation"></div>
+                  @if ($errors->has('plan_id'))
+                  <div class="validation">
+                      {{ $errors->first('plan_id') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Nama Mempelai Pria</label>
                   <input type="text" name="male_name" class="form-control" id="male_name" placeholder="Nama Mempelai Pria" data-rule="minlen:4" data-msg="Mohon Masukkan Nama" />
-                  <div class="validation"></div>
+                  @if ($errors->has('male_name'))
+                  <div class="validation">
+                      {{ $errors->first('male_name') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Nama Mempelai Wanita</label>
                   <input type="text" name="female_name" class="form-control" id="female_name" placeholder="Nama Mempelai Wanita" data-rule="minlen:4" data-msg="Mohon Masukkan Nama" />
-                  <div class="validation"></div>
+                  @if ($errors->has('female_name'))
+                  <div class="validation">
+                      {{ $errors->first('female_name') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                     <label for="Latitude">Latitude</label>
                     <input type="text" name="lat" class="form-control" id="lat" placeholder="Latitude Peta"/>
-                    <div class="validation"></div>
+                    @if ($errors->has('lat'))
+                    <div class="validation">
+                        {{ $errors->first('lat') }}
+                    </div>
+                  @endif
+                    {{-- <div class="validation"></div> --}}
                 </div>
             </div>
           </div>
           <!-- End Left contact -->
           <!-- Start  contact -->
+
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="form contact-form">
               <!-- <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div> -->
                 <div class="form-group">
                   <label for="password">Tanggal Acara</label>
-                  <input type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Tanggal"/>
-                  <div class="validation"></div>
+                  <input type="date" name="date" class="form-control" id="date" placeholder="Tanggal"/>
+                @if ($errors->has('date'))
+                  <div class="validation">
+                      {{ $errors->first('date') }}
+                  </div>
+                @endif
+                {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Jam Acara</label>
-                  <input type="text" name="jam" class="form-control" id="jam" placeholder="Jam"/>
-                  <div class="validation"></div>
+                  <input type="time" name="time" class="form-control" id="time" placeholder="Jam"/>
+                  @if ($errors->has('time'))
+                  <div class="validation">
+                      {{ $errors->first('time') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Alamat</label>
-                  <input type="text" name="alamat" class="form-control" id="alamat" placeholder="Alamat"/>
-                  <div class="validation"></div>
+                  <input type="text" name="address1" class="form-control" id="address1" placeholder="Alamat"/>
+                @if ($errors->has('address1'))
+                  <div class="validation">
+                      {{ $errors->first('address1') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Keluarga Mempelai Pria</label>
                   <input type="text" name="family1" class="form-control" id="family1" placeholder="Keluarga Mempelai Pria"/>
-                  <div class="validation"></div>
+                  @if ($errors->has('family1'))
+                  <div class="validation">
+                      {{ $errors->first('family1') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                   <label for="password">Keluarga Mempelai Wanita</label>
                   <input type="text" name="family2" class="form-control" id="family2" placeholder="Keluarga Mempelai Wanita"/>
-                  <div class="validation"></div>
+                  @if ($errors->has('family2'))
+                  <div class="validation">
+                      {{ $errors->first('family2') }}
+                  </div>
+                @endif
+                  {{-- <div class="validation"></div> --}}
                 </div>
                 <div class="form-group">
                     <label for="Longitude">Longitude</label>
                     <input type="text" name="long" class="form-control" id="long" placeholder="Longitude Peta"/>
-                    <div class="validation"></div>
+                    @if ($errors->has('long'))
+                    <div class="validation">
+                        {{ $errors->first('long') }}
+                    </div>
+                  @endif
+                    {{-- <div class="validation"></div> --}}
                 </div>
             </div>
           </div>
+          <!-- End Left contact -->
 
           <div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12">
                 <div id="map"></div>
-            </div>
+          </div>
 
-          <!-- End Left contact -->
           <!-- Start  contact -->
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="form contact-form">
@@ -173,10 +235,10 @@
                 <div class="text-center">
                     <button type="submit" style="width: 30%">Pesan</button>
                 </div>
-              </form>
             </div>
           </div>
           <!-- End Left contact -->
+        </form>
         </div>
       </div>
     </div>

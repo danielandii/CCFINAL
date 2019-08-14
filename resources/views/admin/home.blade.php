@@ -109,7 +109,7 @@
         events    :[
         @foreach($events as $event)
         {
-            title          : '{{$event->email}}',
+            title          : '{{$event->name}}',
             start          : '{{$event->event_date}}',
             @if($event->transaction->status == 'Baru')
             backgroundColor: '#f39c12', //yellow

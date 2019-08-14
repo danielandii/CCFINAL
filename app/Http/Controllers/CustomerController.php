@@ -9,51 +9,52 @@ use Illuminate\Http\Request;
 use App\Transaction;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
     public function RegisterForm()
     {
-        return view('register');
+        $plans = Plan::all();
+        return view('register',[
+            'plans' => $plans
+        ]);
     }
 
     public function orderTransaction(Request $request)
     {
-        $plans = Plan::all();
         $price = Plan::where('id','=',$request->plan_id)->pluck('price');
+        $plan_name = Plan::where('id','=',$request->plan_id)->pluck('name');
 
-        $validate = Validator::make($request->all(), [
+        $date = Carbon::parse($request->date)->format('Y-m-d');
+        $time = Carbon::parse($request->time)->format('H:i:s');
+        $event_date = date('Y-m-d H:i:s', strtotime("$date $time"));
+
+        $this->validate($request,[
+            'name'          => 'required',
             'email'         => 'required|string|email|unique:customers',
-            'password'      => 'required|string|min:6|confirmed',
             'male_name'     => 'required|string',
-            'female.name'   => 'required|string',
-            'event.date'    => 'required|string',
-            'plan_name'     => 'required',
+            'female_name'   => 'required|string',
             'address1'      => 'required|string',
-            'address2'      => 'required|string',
+            'date'          => 'required',
+            'time'          => 'required',
+            'plan_id'       => 'required',
+            // 'address2'      => 'required|string',
             'family1'       => 'required|string',
             'family2'       => 'required|string',
             'lat'      =>'required',
             'long'      =>'required',
         ]);
 
-        if($validate->fails())
-        {
-            $error = $validate->getMessageBag()->first();
-            return redirect()->route('home',[
-                'error' => $error
-            ]);
-        }
-
         $data_customer = Customer::create([
+            'name'          => $request->name,
             'email'         => $request->email,
-            'password'      => Hash::make($request['password']),
             'male_name'     => $request->male_name,
             'female_name'   => $request->female_name,
-            'event_date'    => $request->event_date,
-            'plan_name'     => $request->plan_name,
+            'event_date'    => $event_date,
+            'plan_name'     => $plan_name[0],
             'address1'      => $request->address1,
-            'address2'      => $request->address2,
+            // 'address2'      => $request->address2,
             'family1'       => $request->family1,
             'family2'       => $request->family2,
             'latitude'      => $request->lat,
@@ -71,11 +72,9 @@ class CustomerController extends Controller
             'code'      => $this->getNewCode(),
         ]);
 
-        $this->sendMail($request);
+        // $this->sendMail($request);
 
-        return redirect()->route('home',[
-            'plans' => $plans
-        ])->with('success', 'Berhasil order, Silahkan cek email untuk rincian order');
+        return redirect()->route('home')->with('success', 'Berhasil order, Silahkan cek email untuk rincian order');
     }
 
     public function showViewCode()

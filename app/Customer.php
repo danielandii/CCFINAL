@@ -9,7 +9,7 @@ class Customer extends Authenticatable
 {
 
     protected $fillable = [
-        'email', 'password', 'male_name', 'female_name', 'event_date', 'plan_name', 'address1', 'address2', ' family1', 'family2'
+        'name', 'email', 'male_name', 'female_name', 'event_date', 'plan_name', 'address1', 'address2', 'family1', 'family2', 'latitude', 'longitude',
     ];
 
     protected $hidden = [
