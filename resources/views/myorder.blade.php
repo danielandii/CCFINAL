@@ -50,7 +50,7 @@
                     <a class="page-scroll" href="{{ URL::to('/customer/register') }}">Register</a>
                   </li>
                   <li class="active">
-                    <a class="page-scroll" href="{{ URL::to('/customer/order') }}">My Order</a>
+                    <a class="page-scroll" href="{{ URL::to('/customer/cek-status') }}">My Order</a>
                   </li>
                 </ul>
               </div>
@@ -89,10 +89,11 @@
             <div class="form contact-form">
               <!-- <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div> -->
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="{{ route('customer.cekstatus') }}" method="POST">
+              @csrf
                 <div class="form-group">
                   <label for="password">No. Resi</label>
-                  <input type="text" name="resi" class="form-control" id="resi" placeholder="No. Resi" data-rule="minlen:4" data-msg="Mohon Masukkan No. Resi" />
+                  <input type="text" name="resi" class="form-control" id="resi" placeholder="No. Resi" data-rule="minlen:4" data-msg="Mohon Masukkan No. Resi" required />
                   <div class="validation"></div>
                 </div>
                 <div class="text-center"><button type="submit">Cari</button></div>
@@ -104,12 +105,40 @@
           <div class="col-md-3 col-sm-3 col-xs-12">
             &nbsp;
           </div>
+          <div class="col-md-12 col-sm-12 col-xs-12" style="margin: 15px;">
+            &nbsp;
+          </div>
           <!-- End Left contact -->
-            <?php 
-            // include(public_path().'\phpqrcode\qrlib.php');
-            // QRcode::png('http://maps.google.com/maps?q=jalan+borobudur+utara+vii+no+15', 'test.png', 'H', '150', '150');
-            // QRcode::url('https://www.google.com/maps?q=borobudur+utara+7+no+15+manyaran+semarang');
-            ?>
+          <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
+          <!-- Start  contact -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            &nbsp;
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12" style="background: rgba(242,240,228);padding: 10px;border-radius: 20px">
+            <table style="width: 100%;">
+              <tr style="border-bottom: 1px solid red">
+                <th>Informasi</th>
+                <th>Data</th>
+              </tr>
+              <tr style="border-bottom: 1px solid red">
+                <td>Kode</td>
+                <td>{{$code}}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid red">
+                <td>Status</td>
+                  {{-- @if($status == 'Baru') --}}
+                <td><b>Belum Terverifikasi</td>
+                    {{-- @else --}}
+                {{-- <td>Sudah Terverifikasi</td> --}}
+                    {{-- @endif --}}
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            &nbsp;
+          </div>
+          <!-- End Left contact -->
+        <?php } ?>
         </div>
       </div>
     </div>

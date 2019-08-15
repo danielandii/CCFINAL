@@ -50,7 +50,7 @@
                     <a class="page-scroll" href="{{ URL::to('/customer/register') }}">Register</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="{{ URL::to('/customer/order') }}">My Order</a>
+                    <a class="page-scroll" href="{{ URL::to('/customer/cek-status') }}">My Order</a>
                   </li>
                 </ul>
               </div>
@@ -83,7 +83,7 @@
               <div class="slider-content">
                 <!-- layer 1 -->
                 <div class="layer-1-1 hidden-xs wow slideInDown" data-wow-duration="2s" data-wow-delay=".2s">
-                  <h2 class="title1">Jesse & Kevin</h2>
+                  <h2 class="title1">Vina & Tatom</h2>
                 </div>
                 <!-- layer 2 -->
                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
@@ -103,7 +103,7 @@
               <div class="slider-content text-center">
                 <!-- layer 1 -->
                 <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                  <h2 class="title1">Berend & Michelle</h2>
+                  <h2 class="title1">Suci & Bayu</h2>
                 </div>
                 <!-- layer 2 -->
                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
@@ -123,7 +123,7 @@
               <div class="slider-content">
                 <!-- layer 1 -->
                 <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                  <h2 class="title1">Guido & Myrna</h2>
+                  <h2 class="title1">Yuanita & Indra</h2>
                 </div>
                 <!-- layer 2 -->
                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
@@ -144,7 +144,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline text-center">
-            <h2>About Wedding Planner</h2>
+            <h2>About Everlasting.id</h2>
           </div>
         </div>
       </div>
@@ -154,7 +154,7 @@
           <div class="well-left">
             <div class="single-well">
               <a href="#">
-								  <img src="frontend/img/g6.jpg" alt="">
+								  <img src="frontend/img/about.jpg" alt="">
 								</a>
             </div>
           </div>
@@ -167,23 +167,23 @@
                 <h4 class="sec-head">Event organizer</h4>
               </a>
               <p>
-                Kami adalah.....
+                Sejak 2019, everlasting.id adalah wedding EO yang menyediakan jasa kepada para pasangan yang akan menikah.
+              </p>
+              <p>
+                Bekerjasama dengan berbagai vendor, kami menyediakan berbagai pilihan yang cocok untuk setiap pasangan.
+              </p>
+              <p>
+                Berbagai service yang kami tawarkan seperti :
               </p>
               <ul>
                 <li>
-                  <i class="fa fa-check"></i> Undangan
+                  <i class="fa fa-check"></i> Desain Undangan
                 </li>
                 <li>
                   <i class="fa fa-check"></i> Photographer
                 </li>
                 <li>
-                  <i class="fa fa-check"></i> dll
-                </li>
-                <li>
-                  <i class="fa fa-check"></i> dll
-                </li>
-                <li>
-                  <i class="fa fa-check"></i> dll
+                  <i class="fa fa-check"></i> Venue
                 </li>
               </ul>
             </div>
@@ -224,7 +224,7 @@
           	<img src="frontend/img/g5.jpg">
           </div>
           <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px">
-          	<img src="frontend/img/g7.jpg">
+          	<img src="frontend/img/g6.jpg">
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ use App\Transaction;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+// use Public\phpqrcode\qrlib;
 
 class CustomerController extends Controller
 {
@@ -32,7 +33,7 @@ class CustomerController extends Controller
 
         $this->validate($request,[
             'name'          => 'required',
-            'email'         => 'required|string|email|unique:customers',
+            'email'         => 'required|string|email',
             'male_name'     => 'required|string',
             'female_name'   => 'required|string',
             'address1'      => 'required|string',
@@ -62,7 +63,11 @@ class CustomerController extends Controller
         ]);
 
         // generate qrCode
-        $map_url = "https://www.google.com/maps/search/?api=1&query=".$request->latitude.",".$request->longitude."";
+        $map_url = "https://www.google.com/maps/search/?api=1&query=".$request->lat.",".$request->long."";
+
+        \QrCode::format('png')
+            ->size(200)
+            ->generate($map_url, public_path('images/qrcode'.$data_customer->id.'.png'));
 
 
         Transaction::create([
@@ -77,32 +82,43 @@ class CustomerController extends Controller
         return redirect()->route('home')->with('success', 'Berhasil order, Silahkan cek email untuk rincian order');
     }
 
-    public function showViewCode()
+    public function showViewCode(Request $request)
     {
-        return view('customer.code');
+        if($request->resi!=''){
+            dd($request->resi);
+        }
+        
+        return view('myorder');
     }
 
     public function showOrderStatus(Request $request)
     {
-        $statusOrder = Transaction::where('code', '=', $request->code)->select('status')->first();
+        
+        $statusOrder = Transaction::where('code', $request->resi)->first();
 
-        if($statusOrder->status == 'Sudah')
-        {
-            $statusNewString = 'Sudah Terverifikasi';
-        }elseif($statusOrder->status == 'Baru')
-        {
-            $statusNewString = 'Belum Terverifikasi';
-        }
+        // if($statusOrder->status == 'Sudah')
+        // {
+        //     $statusNewString = 'Sudah Terverifikasi';
+        // }elseif($statusOrder->status == 'Baru')
+        // {
+        //     $statusNewString = 'Belum Terverifikasi';
+        // }
 
-        return view('orderstatus',[
-            'statusNewString' => $statusNewString
-        ]);
+        // return view('orderstatus',[
+        //     'statusNewString' => $statusNewString
+        // ]);
+
+        return view('myorder', $statusOrder);
     }
 
     public function getNewCode()
     {
         $getLastId = Transaction::latest()->first();
-        $getAuto = $getLastId->id +1;
+        if($getLastId){
+            $getAuto = $getLastId->id +1;
+        } else {
+            $getAuto = 1;
+        }
         $staticString = 'EVEID';
         $getDateString = Carbon::now()->format('dmY');
         $getCode = $staticString.$getDateString.$getAuto;

@@ -264,7 +264,7 @@ div#preloader {
   left: 0;
   width: 100%;
   height: auto;
-  background: rgba(0, 0, 0, 0.40);
+  background: rgba(242,240,228, 0.40);
   z-index: 9;
 }
 
@@ -276,45 +276,52 @@ div#preloader {
 
 .main-menu ul.navbar-nav li {
   display: inline-block;
-  padding: 0px 13px;
+  /*padding: 0px 13px;*/
 }
 
 .main-menu ul.navbar-nav li a {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  color: #fff;
+  color: #86685A;
   font-size: 15px;
   font-weight: 500;
-  padding: 24px 0px;
+  /*padding: 24px 0px;*/
+  border-radius: 25px;
   text-transform: capitalize;
   letter-spacing: 1px;
 }
 
 .main-menu ul.navbar-nav li.active > a::after {
-  border: 1px solid #fff;
+  /*border: 1px solid #fff;
   bottom: 0px;
   content: "";
   left: 0;
   position: absolute;
-  width: 100%;
+  width: 100%;*/
 }
 
 .main-menu ul.navbar-nav li.active a:hover {
-  background: none;
-  color: #fff;
+    background: #86685A;
+    color: #FEF6F6;
+    position: relative;
+    border-radius: 25px;
 }
 
 .main-menu ul.navbar-nav li.active a:focus {
-  color: #fff;
+  color: #FEF6F6;
 }
 
 .main-menu ul.navbar-nav li.active a {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  color: #fff;
+  background: #86685A;
+  color: #FEF6F6;
   position: relative;
+  border-radius: 25px;
 }
 
 .main-menu ul.navbar-nav li a:hover {
-  color: #3EC1D5;
+    background: #86685A;
+    color: #FEF6F6;
+    position: relative;
+    border-radius: 25px;
 }
 
 .navbar {
@@ -383,7 +390,7 @@ div#preloader {
 /*--------------------------------*/
 
 .header-area.stick {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #f2f0e4;
   height: 70px;
   position: fixed;
   top: 0;
@@ -405,7 +412,7 @@ div#preloader {
 }
 
 .sticky-logo h1 {
-  color: #fff;
+  color: #EDD28D;
   padding: 0;
   margin: 0;
   font-size: 36px;
@@ -414,15 +421,15 @@ div#preloader {
 }
 
 .sticky-logo h1 span {
-  color: #3ec1d5;
+  color: #86685A;
 }
 .stick .main-menu ul.navbar-nav li.active > a::after {
-  border: 1px solid #fff;
+  /*border: 1px solid #fff;
   bottom: 0px;
   content: "";
   left: 0;
   position: absolute;
-  width: 100%;
+  width: 100%;*/
 }
 
 .stick .main-menu ul.nav>li>a:hover {
@@ -430,9 +437,10 @@ div#preloader {
 }
 
 .stick .main-menu ul.navbar-nav li.active a {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  color: #fff;
+  background: #86685A;
+  color: #FEF6F6;
   position: relative;
+  border-radius: 25px;
 }
 
 .stick .mainmenu ul#nav>li:hover>a, .stick .mainmenu ul#nav li .mega-menu, .stick .mainmenu ul#nav li ul.sub-menu {
@@ -454,9 +462,11 @@ div#preloader {
 }
 
 .stick .main-menu ul.nav>li>a {
-  color: #fff;
+  color: #86685A;
   line-height: 22px;
-  padding: 24px 0px;
+  border-radius: 25px;
+  /*padding: 24px 0px;*/
+  border-radius: 25px;
   text-transform: capitalize;
   letter-spacing: 1px;
 }
@@ -1639,7 +1649,7 @@ div#preloader {
 }
 
 .contact-form input[type="text"], .contact-form input[type="email"] {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  /*background: rgba(0, 0, 0, 0) none repeat scroll 0 0;*/
   border: 1px solid #ccc;
   border-radius: 0;
   color: #444;
@@ -1650,7 +1660,7 @@ div#preloader {
 }
 
 .contact-form textarea  {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  /*background: rgba(0, 0, 0, 0) none repeat scroll 0 0;*/
   border: 1px solid #ccc;
   border-radius: 0;
   color: #444;
@@ -1660,9 +1670,10 @@ div#preloader {
 }
 
 .contact-form button[type="submit"] {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  border: 1px solid #ccc;
-  color: #444;
+  /*background: rgba(0, 0, 0, 0) none repeat scroll 0 0;*/
+  background: #3EC1D5;
+  border: 1px solid #3EC1D5;
+  color: #fff;
   font-size: 16px;
   font-weight: 700;
   margin-top: 8px;
@@ -2090,7 +2101,7 @@ div#preloader {
 
 /*----------------------------------------*/
 
-/*  19.	Blog Details css
+/*  19. Blog Details css
 /*----------------------------------------*/
 
 .post-information h2 {

@@ -50,7 +50,7 @@
                     <a class="page-scroll" href="{{ URL::to('/customer/register') }}">Register</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="{{ URL::to('/customer/order') }}">My Order</a>
+                    <a class="page-scroll" href="{{ URL::to('/customer/cek-status') }}">My Order</a>
                   </li>
                 </ul>
               </div>

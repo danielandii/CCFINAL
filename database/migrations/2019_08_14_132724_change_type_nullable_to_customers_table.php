@@ -14,8 +14,8 @@ class ChangeTypeNullableToCustomersTable extends Migration
     public function up()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->dropColumn('event_date');
-            $table->dateTime('event_date');
+            // $table->dropColumn('event_date');
+            $table->dateTime('event_date')->change();
 
         });
     }
@@ -28,8 +28,8 @@ class ChangeTypeNullableToCustomersTable extends Migration
     public function down()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->dropColumn('event_date');
-            $table->timestamp('event_date');
+            // $table->dropColumn('event_date');
+            $table->timestamp('event_date')->change();
         });
     }
 }
