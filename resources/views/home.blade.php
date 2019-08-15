@@ -19,8 +19,9 @@
                     <span class="icon-bar"></span>
                   </button>
                 <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <h1><span>Everlasting</span>.id</h1>
+                <a class="navbar-brand page-scroll sticky-logo" href="{{ URL::to('/') }}">
+                  <!-- <h1><span>Everlasting</span>.id</h1> -->
+                  <img src="{{ asset('frontend/img/logo.png') }}" style="height: 60px;margin-top: -10px;">
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <!-- <img src="img/logo.png" alt="" title=""> -->
                 </a>
@@ -70,9 +71,9 @@
   <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides" style="max-height: 800px">
-        <img src="frontend/img/1.jpg" alt="" title="#slider-direction-1" />
-        <img src="frontend/img/2.jpg" alt="" title="#slider-direction-2" />
-        <img src="frontend/img/3.jpg" alt="" title="#slider-direction-3" />
+        <img src="http://d2azhkhpnqadb9.cloudfront.net/1.jpg" alt="" title="#slider-direction-1" />
+        <img src="http://d2azhkhpnqadb9.cloudfront.net/2.jpg" alt="" title="#slider-direction-2" />
+        <img src="http://d2azhkhpnqadb9.cloudfront.net/3.jpg" alt="" title="#slider-direction-3" />
       </div>
 
       <!-- direction 1 -->
@@ -144,7 +145,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline text-center">
-            <h2>About Everlasting.id</h2>
+            <h2>About Resepsimu.id</h2>
           </div>
         </div>
       </div>
@@ -154,7 +155,7 @@
           <div class="well-left">
             <div class="single-well">
               <a href="#">
-								  <img src="frontend/img/about.jpg" alt="">
+								  <img src="http://d2azhkhpnqadb9.cloudfront.net/about.jpg" alt="">
 								</a>
             </div>
           </div>
@@ -209,22 +210,22 @@
         <div class="services-contents">
           <!-- Start Left services -->
           <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px">
-          	<img src="frontend/img/g1.jpg">
+          	<img src="http://d2azhkhpnqadb9.cloudfront.net/g1.jpg">
           </div>
           <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px">
-          	<img src="frontend/img/g2.jpg">
+          	<img src="http://d2azhkhpnqadb9.cloudfront.net/g2.jpg">
           </div>
           <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px">
-          	<img src="frontend/img/g3.jpg">
+          	<img src="http://d2azhkhpnqadb9.cloudfront.net/g3.jpg">
           </div>
           <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px">
-          	<img src="frontend/img/g4.jpg">
+          	<img src="http://d2azhkhpnqadb9.cloudfront.net/g4.jpg">
           </div>
           <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px">
-          	<img src="frontend/img/g5.jpg">
+          	<img src="http://d2azhkhpnqadb9.cloudfront.net/g5.jpg">
           </div>
           <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px">
-          	<img src="frontend/img/g6.jpg">
+          	<img src="http://d2azhkhpnqadb9.cloudfront.net/g6.jpg">
           </div>
         </div>
       </div>
@@ -248,7 +249,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
-					<img src="frontend/img/about.jpg" alt="" style="height: 250px">
+					<img src="http://d2azhkhpnqadb9.cloudfront.net/about.jpg" alt="" style="height: 250px">
 				</a>
               </div>
               <div class="team-content text-center">
@@ -262,7 +263,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
-					<img src="frontend/img/t2.jpg" alt="" style="height: 250px">
+					<img src="http://d2azhkhpnqadb9.cloudfront.net/t2.jpg" alt="" style="height: 250px">
 				</a>
               </div>
               <div class="team-content text-center">
@@ -276,7 +277,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
-					<img src="frontend/img/t3.jpg" alt="" style="height: 250px">
+					<img src="http://d2azhkhpnqadb9.cloudfront.net/t3.jpg" alt="" style="height: 250px">
 				</a>
               </div>
               <div class="team-content text-center">
@@ -290,7 +291,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
-					<img src="frontend/img/4.jpg" alt="" style="height: 250px">
+					<img src="http://d2azhkhpnqadb9.cloudfront.net/4.jpg" alt="" style="height: 250px">
 				</a>
               </div>
               <div class="team-content text-center">

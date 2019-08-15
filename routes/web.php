@@ -21,9 +21,10 @@ Route::post('/customer/login', 'CustomerLoginController@login')->name('customer.
 Route::get('/customer/register', 'CustomerController@RegisterForm')->middleware('guest');
 Route::post('/customer/register', 'CustomerController@register')->name('customer.register')->middleware('guest');
 
-Route::post('/customer/order', 'customerController@orderTransaction')->name('customer.order');
-Route::get('/customer/cek-status', 'customerController@showViewCode')->name('customer.viewcode');
-Route::post('/customer/cek-status', 'customerController@showOrderStatus')->name('customer.cekstatus');
+Route::post('/customer/order', 'CustomerController@orderTransaction')->name('customer.order');
+Route::get('/customer/cek-status', 'CustomerController@showViewCode')->name('customer.viewcode');
+Route::post('/customer/cek-status', 'CustomerController@showOrderStatus')->name('customer.cekstatus');
+Route::get('/customer/undangan', 'CustomerController@undangan')->name('customer.undangan');
 
 
 // Admin case
@@ -50,4 +51,4 @@ Route::get('/admin/transaction', 'AdminController@indexTransaction')->name('admi
 Route::get('/admin/transaction/edit/{transaction}', 'AdminController@showTransaction')->name('admin.show.transaction')->middleware('auth');
 Route::put('/admin/transaction/verify/{transaction}', 'AdminController@verifyTransaction')->name('admin.verify.transaction')->middleware('auth');
 
-Route::get('/tes/mail', 'customerController@sendMail');
+Route::get('/tes/mail', 'CustomerController@sendMail');

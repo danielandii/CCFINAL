@@ -19,8 +19,9 @@
                     <span class="icon-bar"></span>
                   </button>
                 <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <h1><span>Everlasting</span>.id</h1>
+                <a class="navbar-brand page-scroll sticky-logo" href="{{ URL::to('/') }}">
+                  <!-- <h1><span>Everlasting</span>.id</h1> -->
+                  <img src="{{ asset('frontend/img/logo.png') }}" style="height: 60px;margin-top: -10px;">
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <!-- <img src="img/logo.png" alt="" title=""> -->
                 </a>

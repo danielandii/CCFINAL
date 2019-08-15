@@ -79,7 +79,17 @@ class CustomerController extends Controller
 
         // $this->sendMail($request);
 
-        return redirect()->route('home')->with('success', 'Berhasil order, Silahkan cek email untuk rincian order');
+        return view('done', $data_customer);
+
+        // return redirect()->route('home')->with('success', 'Berhasil order, Silahkan cek email untuk rincian order');
+    }
+
+    public function undangan(Request $request)
+    {
+        
+        $statusOrder = Customer::where('id', $request->id)->first();
+
+        return view('undangan', $statusOrder);
     }
 
     public function showViewCode(Request $request)
@@ -87,7 +97,7 @@ class CustomerController extends Controller
         if($request->resi!=''){
             dd($request->resi);
         }
-        
+
         return view('myorder');
     }
 
@@ -95,18 +105,6 @@ class CustomerController extends Controller
     {
         
         $statusOrder = Transaction::where('code', $request->resi)->first();
-
-        // if($statusOrder->status == 'Sudah')
-        // {
-        //     $statusNewString = 'Sudah Terverifikasi';
-        // }elseif($statusOrder->status == 'Baru')
-        // {
-        //     $statusNewString = 'Belum Terverifikasi';
-        // }
-
-        // return view('orderstatus',[
-        //     'statusNewString' => $statusNewString
-        // ]);
 
         return view('myorder', $statusOrder);
     }
