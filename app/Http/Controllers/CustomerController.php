@@ -77,7 +77,26 @@ class CustomerController extends Controller
             'code'      => $this->getNewCode(),
         ]);
 
-        // $this->sendMail($request);
+        // setup email env
+            // MAIL_DRIVER=smtp
+            // MAIL_HOST=smtp.gmail.com
+            // MAIL_PORT=587
+            // MAIL_USERNAME=resepsimu.id@gmail.com
+            // MAIL_PASSWORD=xnalhsycdixujyiz
+            // MAIL_ENCRYPTION=tls
+        Mail::send('emailku',
+        [
+            'name'  => $request->name,
+            'plan_name'     => $plan_name[0],
+            'id'    => $data_customer->id,
+            'price' => $price[0],
+            'code'  => $this->getNewCode(),
+            'qrcode' => public_path('images/qrcode'.$data_customer->id.'.png')
+        ], function($message) use ($data_customer)
+        {
+            $message->from('resepsimu.id@gmail.com', 'no-reply');
+            $message->to($data_customer['email'])->subject('Resepsimu.Id Order');
+        });
 
         return view('done', $data_customer);
 
@@ -86,7 +105,7 @@ class CustomerController extends Controller
 
     public function undangan(Request $request)
     {
-        
+
         $statusOrder = Customer::where('id', $request->id)->first();
 
         return view('undangan', $statusOrder);
@@ -103,7 +122,7 @@ class CustomerController extends Controller
 
     public function showOrderStatus(Request $request)
     {
-        
+
         $statusOrder = Transaction::where('code', $request->resi)->first();
 
         return view('myorder', $statusOrder);
@@ -123,31 +142,28 @@ class CustomerController extends Controller
         return $getCode;
     }
 
-    public function sendMail(Request $request)
-    {
-        $data = [
-            'email' => 'adifka09@gmail.com',
-            'plan_id' => 1,
-            'price' => 1212121,
-            'code' => 12121
-            // 'email' => $request->email,
-            // 'plan_id' => $request->plan_id,
-            // 'price' => $request->price,
-            // 'code' => $request->code,
-        ];
-        // env config email
-        // MAIL_USERNAME=44039328ba3b6d
-        // MAIL_PASSWORD=980644be0f56c0
+    // public function sendMail(Request $request)
+    // {
+    //     $data = [
+    //         'email' => $request->email,
+    //         'name' => $request->name,
+    //         'plan_name' => $plan_name[0],
+    //         'price' => $request->price,
+    //         'code' => $request->code
+    //     ];
+    //     // env config email
+    //     // MAIL_USERNAME=44039328ba3b6d
+    //     // MAIL_PASSWORD=980644be0f56c0
 
-        Mail::send('emailku', $data, function($message) use ($data)
-        {
-            $message->from('admin@wedding.test', 'no-reply');
-            $message->to($data['email'])->subject('Everlasting');
-        });
-        // to($data['email'])->send(new everlastMail($data));
-        return "email telah terkirim";
+    //     Mail::send('emailku', $data, function($message) use ($data)
+    //     {
+    //         $message->from('snqiscus@gmail.com', 'no-reply');
+    //         $message->to($data['email'])->subject('Everlasting Order');
+    //     });
+    //     // to($data['email'])->send(new everlastMail($data));
+    //     return "email telah terkirim";
 
 
 
-    }
+    // }
 }

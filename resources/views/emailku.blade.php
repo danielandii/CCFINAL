@@ -19,9 +19,10 @@ tr:nth-child(even) {
 </head>
 <body>
 <div class ="jumbotron text-center">
-<h1><p>EverLast - Order berhasil dilakukan</h1></p>
+<h1><p>Resepsimu.Id - Order berhasil dilakukan</h1></p>
 </div>
-<p>Silahkan lengkapi pembayaran, dan gunakan Kode untuk melihat status pembayaran</p>
+<h3>Terimakasih telah memesan layanan wedding organization kami.</h3>
+<h3>Silahkan lengkapi pembayaran, dan gunakan Kode untuk melihat status pembayaran.</h3>
 
 <table>
   <tr>
@@ -29,12 +30,12 @@ tr:nth-child(even) {
     <th>Data</th>
   </tr>
   <tr>
-    <td>Email</td>
-    <td>{{$email}}</td>
+    <td>Nama</td>
+    <td>{{$name}}</td>
   </tr>
   <tr>
     <td>Plan</td>
-    <td>{{$plan_id}}</td>
+    <td>{{$plan_name}}</td>
   </tr>
   <tr>
     <td>Harga</td>
@@ -46,19 +47,15 @@ tr:nth-child(even) {
   </tr>
   <tr>
     <td>Status</td>
-      {{-- @if($status == 'Baru') --}}
     <td><b>Belum Terverifikasi</td>
-        {{-- @else --}}
-    {{-- <td>Sudah Terverifikasi</td> --}}
-        {{-- @endif --}}
-  </tr>
 </table>
 
-<div style="text-align: center">
-    <img src='https://seeklogo.com/images/J/Just_married-logo-93BB481001-seeklogo.com.png' alt='everLasting' />
-    <span>Cek Resi di <a href="{{Route('customer.viewcode')}}"></a>di sini</span>
-    <span>Lengkapi pembayaran, Hubungi 082136336432</span>
-</div>
+{{-- <div style="text-align: center"> --}}
+<p>Cek Resi di <a href="{{Route('customer.viewcode')}}">di sini</a></p>
+<p>Cek Format undangan <a href="{{$_SERVER['SERVER_NAME']}}/customer/undangan?id={{$id}}">di sini</a></p>
+<h4>Lengkapi pembayaran, Hubungi 082136336432</h4>
+<img src="https://www.resepsimu.id/frontend/img/logo.png" style="height: 60px;margin-top: -10px;">
+{{-- </div> --}}
 
 </body>
 </html>
