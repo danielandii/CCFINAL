@@ -124,8 +124,12 @@ class CustomerController extends Controller
     {
 
         $statusOrder = Transaction::where('code', $request->resi)->first();
-
-        return view('myorder', $statusOrder);
+        if($statusOrder)
+        {
+            return view('myorder', $statusOrder);
+        }
+        return back();
+        // return view('myorder', $statusOrder);
     }
 
     public function getNewCode()
