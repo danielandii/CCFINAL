@@ -382,8 +382,8 @@
               <div class="single-icon">
                 <i class="fa fa-mobile"></i>
                 <p>
-                  Call: +1 5589 55488 55<br>
-                  <span>Monday-Friday (9am-5pm)</span>
+                  Call: +62 858 4850 0760<br>
+                  <span>Senin-Jumat (09:00-17:00)</span>
                 </p>
               </div>
             </div>
@@ -394,8 +394,8 @@
               <div class="single-icon">
                 <i class="fa fa-envelope-o"></i>
                 <p>
-                  Email: info@example.com<br>
-                  <span>Web: www.example.com</span>
+                  Email: resepsimu.id@gmail.com<br>
+                  <span>Web: resepsimu.id</span>
                 </p>
               </div>
             </div>
@@ -406,8 +406,8 @@
               <div class="single-icon">
                 <i class="fa fa-map-marker"></i>
                 <p>
-                  Location: A108 Adam Street<br>
-                  <span>NY 535022, USA</span>
+                  Location: Jl. Prof. Soedarto, SH  <br>
+                  <span>Tembalang, Semarang 1269</span>
                 </p>
               </div>
             </div>
@@ -418,7 +418,7 @@
           <!-- Start Google Map -->
           <div class="col-md-6 col-sm-6 col-xs-12">
             <!-- Start Map -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://maps.google.com/maps?q=gedung%20prof%20sudarto&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
             <!-- End Map -->
           </div>
           <!-- End Google Map -->
